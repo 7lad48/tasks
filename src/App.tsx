@@ -5,6 +5,7 @@ import {Todolist, TaskType} from './Todolist';
 export type FilterType = 'all' | 'active' | 'completed'
 function App() {
     const idGenerator = Math.floor( ( (Math.random()*1000 + Math.random()*1000) / (Math.random()*4 + Math.random()*4) ) * Math.random()*80 );
+
     const toDoTitle: string = "What to learn";
     const [tasks, setTasks] = useState<Array<TaskType>>([
         { id: 1, title: "HTML&CSS", isDone: true },
@@ -17,7 +18,7 @@ function App() {
         setTasks(updatedTasks);
     }
     const addTask = (task:string) => {
-        setTasks([...tasks, {id: idGenerator, title: task, isDone: false}]);
+        setTasks([{id: idGenerator, title: task, isDone: false}, ...tasks]);
     }
     const filteredTasks = (filter:FilterType, tasks:Array<TaskType>): Array<TaskType> => {
         if (filter === 'active') {

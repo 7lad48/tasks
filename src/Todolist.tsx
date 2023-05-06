@@ -1,5 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import {FilterType} from "./App";
+import Button from "./Button";
+import Input from "./Input";
 
 export type TaskType = {
     id: number
@@ -42,8 +44,10 @@ export function Todolist(props: PropsType) {
     return <div>
         <h3>{props.title}</h3>
         <div>
-            <input onChange={inputChange} value={inputField}/>
-            <button onClick={addTaskBtnHandler}>+</button>
+            {/*<input onChange={inputChange} value={inputField}/>*/}
+            {/*<button onClick={addTaskBtnHandler}>+</button>*/}
+            <Input inputChange={inputChange} inputField={inputField}/>
+            <Button name={'add'} callBack={addTaskBtnHandler}/>
         </div>
         <ul>{tasks}</ul>
         <div>
